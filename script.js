@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initEventDetailsModal();
     initFaq();
+    initCarousel();
 });
 
 function initMobileMenu() {
@@ -80,6 +81,41 @@ Transmissão online pelo Instagram oficial</p>
 
 <p>Inscreva-se pelo Sympla para receber lembretes, acesso à transmissão e materiais do evento por e-mail.</p>`,
             ctaUrl: 'https://www.sympla.com.br/evento/aws-cloud-club-sa-conhecendo-aws-cloud-club-1/3276397?share_id=copiarlink'
+        },
+        2: {
+            day: '4',
+            month: 'ABR',
+            title: 'Conhecendo AWS #2',
+            location: 'Hub Goiás — Auditório Principal',
+            time: '19h às 21h45 · Presencial + Transmissão ao vivo',
+            description: `<p>Vem aí o Conhecendo AWS #2!</p>
+<p>Depois de um primeiro evento incrível, estamos de volta com ainda mais conteúdo, networking e experiências na prática.</p>
+
+<p><strong>O que teremos:</strong></p>
+<ul>
+    <li>Coffee-break e Sorteios</li>
+    <li>Networking com a comunidade</li>
+</ul>
+
+<p>E dessa vez com um time de peso como:</p>
+<ul>
+    <li><strong>Bruna Alencar</strong> - Head de Capital Humano na AUVP Capital.</li>
+    <li><strong>Pedro Goiânia</strong> - Fundador da Pix Ai, Dev na gringa Ex-NuBank e Ex-Itaú</li>
+    <li><strong>Pedro Cardoso</strong> - Desenvolvedor Back-end na Decisão Sistemas e Core-Team AWS Cloud Club.</li>
+</ul>
+
+<p>Trazendo conteúdos imperdíveis! (Em breve mais informações)</p>
+
+<p><strong>Data, horário e local</strong><br>
+04 de abril, das 19:00 às 21:45<br>
+Hub Goiás no auditório principal<br>
+Presencial + transmissão ao vivo</p>
+
+<p><strong>Evento gratuito com vagas limitadas — não fica de fora!</strong></p>
+
+<p>E nos acompanhe no Instagram: <a href="https://www.instagram.com/cloudclub.go" target="_blank">@CloudClub.GO</a></p>
+<p>#AWS #CloudComputing #Tech #Comunidade #AWSCloudClub #Dev</p>`,
+            ctaUrl: ''
         }
     };
 
@@ -168,5 +204,64 @@ function initFaq() {
                 answer.style.maxHeight = null;
             }
         });
+    });
+}
+
+function initCarousel() {
+    const grid = document.getElementById('organizersGrid');
+    if (!grid) return;
+
+    let autoPlayInterval;
+    let timeoutId;
+    let isAutoPlaying = true;
+    const pauseDuration = 5000;
+    const scrollSpeed = 2500;
+
+    function startAutoPlay() {
+        if (!isAutoPlaying) return;
+        
+        // Only valid if scrollable
+        if (grid.scrollWidth <= grid.clientWidth) return;
+        
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(() => {
+            const card = grid.querySelector('.organizer-card');
+            if (!card) return;
+            const scrollAmount = card.clientWidth + parseInt(window.getComputedStyle(grid).gap || 0);
+
+            // Check if reached the end
+            if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
+                grid.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }, scrollSpeed);
+    }
+
+    function pauseAutoPlay() {
+        clearInterval(autoPlayInterval);
+        clearTimeout(timeoutId);
+        
+        timeoutId = setTimeout(() => {
+            isAutoPlaying = true;
+            startAutoPlay();
+        }, pauseDuration);
+    }
+
+    startAutoPlay();
+
+    grid.addEventListener('touchstart', pauseAutoPlay, { passive: true });
+    grid.addEventListener('mousedown', pauseAutoPlay);
+    grid.addEventListener('click', pauseAutoPlay);
+    grid.addEventListener('wheel', pauseAutoPlay, { passive: true });
+    
+    window.addEventListener('resize', () => {
+        if (grid.scrollWidth > grid.clientWidth) {
+            isAutoPlaying = true;
+            startAutoPlay();
+        } else {
+            clearInterval(autoPlayInterval);
+            clearTimeout(timeoutId);
+        }
     });
 }
