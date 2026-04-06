@@ -8,7 +8,7 @@
   --color-quaternary: #F6D32B; /* Startup Weekend Yellow */
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --color-bg: #EBEBEB;
+  --color-bg: #FF90E8; /* Rosa vibrante */
 
   --spacing-xs: 6px;
   --spacing-sm: 10px;
@@ -977,5 +977,72 @@ body {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-grid, .cards-grid {
+    display: flex !important;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none;
+    padding-bottom: 20px;
+  }
+  
+  .events-grid::-webkit-scrollbar, .cards-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .event-card {
+    min-width: 85vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    margin: 0;
+    /* Alterar para coluna no mobile para não espremer o conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .event-date {
+    width: 100%;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .event-date .day {
+    font-size: 1.5rem;
+  }
+
+  .event-date .month {
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+
+  .event-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .organizer-card {
+    min-width: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    margin: 0;
   }
 }
