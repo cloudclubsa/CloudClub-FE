@@ -1055,6 +1055,17 @@ body {
 
   .social-links {
     justify-content: center;
+    gap: 16px;
+  }
+
+  .social-links img {
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+  }
+
+  .social-links img[alt="WhatsApp"] {
+    padding: 3px;
   }
 
   .footer-grid {
