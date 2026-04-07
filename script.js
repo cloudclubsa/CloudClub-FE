@@ -17,7 +17,6 @@ function initMobileMenu() {
         menuNavbar.classList.toggle('active');
     });
 
-    // Fechar menu ao clicar em um link
     const menuLinks = menuNavbar.querySelectorAll('a');
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -26,7 +25,6 @@ function initMobileMenu() {
         });
     });
 
-    // Fechar menu ao clicar fora
     document.addEventListener('click', (e) => {
         if (!menuNavbar.contains(e.target) && !menuToggle.contains(e.target)) {
             menuToggle.setAttribute('aria-expanded', 'false');
@@ -42,7 +40,6 @@ function initEventDetailsModal() {
 
     if (!modal || !closeBtn) return;
 
-    // Dados dos eventos (pode ser expandido para múltiplos eventos)
     const eventData = {
         1: {
             day: '19',
@@ -123,7 +120,6 @@ Presencial + transmissão ao vivo</p>
         const event = eventData[eventId];
         if (!event) return;
 
-        // Preencher dados do modal
         document.querySelector('.event-modal-day').textContent = event.day;
         document.querySelector('.event-modal-month').textContent = event.month;
         document.querySelector('.event-modal-title').textContent = event.title;
@@ -132,14 +128,12 @@ Presencial + transmissão ao vivo</p>
         document.querySelector('.event-modal-description').innerHTML = event.description;
         document.querySelector('.event-modal-cta').href = event.ctaUrl;
 
-        // Mostrar modal
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         modal.classList.remove('active');
-        // Aguardar animação de saída antes de esconder completamente
         setTimeout(() => {
             if (!modal.classList.contains('active')) {
                 document.body.style.overflow = '';
@@ -147,7 +141,6 @@ Presencial + transmissão ao vivo</p>
         }, 300);
     }
 
-    // Abrir modal ao clicar no botão de detalhes
     detailsButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const eventId = btn.getAttribute('data-event-id');
@@ -155,17 +148,14 @@ Presencial + transmissão ao vivo</p>
         });
     });
 
-    // Fechar modal
     closeBtn.addEventListener('click', closeModal);
 
-    // Fechar ao clicar no overlay
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Fechar com ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
@@ -186,7 +176,6 @@ function initFaq() {
         question.addEventListener('click', (e) => {
             e.preventDefault();
 
-            // Fecha todos os outros itens abertos (opcional, para efeito acordeão único)
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
@@ -194,7 +183,6 @@ function initFaq() {
                 }
             });
 
-            // Alterna o estado do item atual
             item.classList.toggle('active');
             const answer = item.querySelector('.faq-answer');
 
@@ -220,7 +208,6 @@ function initCarousel() {
     function startAutoPlay() {
         if (!isAutoPlaying) return;
         
-        // Only valid if scrollable
         if (grid.scrollWidth <= grid.clientWidth) return;
         
         clearInterval(autoPlayInterval);
@@ -229,7 +216,6 @@ function initCarousel() {
             if (!card) return;
             const scrollAmount = card.clientWidth + parseInt(window.getComputedStyle(grid).gap || 0);
 
-            // Check if reached the end
             if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
                 grid.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
