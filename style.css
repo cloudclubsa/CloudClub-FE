@@ -2,13 +2,18 @@
   /* AWS Branding Colors adapted for Brutalism + Startup Weekend accent colors */
   --color-aws-orange: #FF9900;
   --color-aws-blue: #232F3E;
-  --color-primary: #B152FF; /* Roxo vibrante */
-  --color-secondary: #E3B5FF; /* Roxo secundário/claro para alto contraste */
-  --color-tertiary: #00A0DC;  /* Startup Weekend Blue */
-  --color-quaternary: #F6D32B; /* Startup Weekend Yellow */
+  --color-primary: #B152FF;
+  /* Roxo vibrante */
+  --color-secondary: #E3B5FF;
+  /* Roxo secundário/claro para alto contraste */
+  --color-tertiary: #00A0DC;
+  /* Startup Weekend Blue */
+  --color-quaternary: #F6D32B;
+  /* Startup Weekend Yellow */
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --color-bg: #FF90E8; /* Rosa vibrante */
+  --color-bg: #FF90E8;
+  /* Rosa vibrante */
 
   --spacing-xs: 6px;
   --spacing-sm: 10px;
@@ -22,11 +27,13 @@
   --font-size-xl: 40px;
 
   --transition-default: all 0.2s ease-in-out;
-  --border-radius-pill: 0px; /* Neo-brutalism prefers sharp corners or very slight rounding */
-  
+  --border-radius-pill: 0px;
+  /* Neo-brutalism prefers sharp corners or very slight rounding */
+
   /* Neo-Brutalist Features */
   --border-thick: 4px solid var(--color-black);
-  --border-radius: 4px; /* Slight round to avoid extreme sharpness, but still brutal */
+  --border-radius: 4px;
+  /* Slight round to avoid extreme sharpness, but still brutal */
   --neo-shadow: 6px 6px 0px var(--color-black);
   --neo-shadow-hover: 2px 2px 0px var(--color-black);
 }
@@ -50,9 +57,46 @@ body {
   font-size: var(--font-size-base);
   color: var(--color-black);
   background-color: var(--color-bg);
-  /* Dotted grid pattern typical of Neo-brutalism */
-  background-image: radial-gradient(var(--color-black) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5 L15 25 M5 15 L25 15' stroke='rgba(0,0,0,0.1)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M35 45 L55 45' stroke='rgba(0,0,0,0.1)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Clouds */
+.clouds-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 90px;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 70"%3E%3Cpath d="M30,60 C15,60 5,50 5,35 C5,20 15,10 30,10 C35,10 40,12 45,15 C50,5 60,0 75,0 C90,0 100,10 105,25 C112,28 115,35 115,45 C115,55 105,60 90,60 Z" fill="%23FFF" stroke="%23000" stroke-width="4" stroke-linejoin="round"/%3E%3C/svg%3E');
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(6px 6px 0px rgba(0,0,0,1));
+  animation: floatCloud linear infinite;
+  opacity: 0.9;
+}
+
+.cloud-1 { top: 5%; animation-duration: 45s; animation-delay: -10s; --s: 1.1; }
+.cloud-2 { top: 25%; animation-duration: 60s; animation-delay: -30s; --s: 0.8; }
+.cloud-3 { top: 40%; animation-duration: 50s; animation-delay: -5s; --s: 1.3; }
+.cloud-4 { top: 60%; animation-duration: 70s; animation-delay: -45s; --s: 0.9; }
+.cloud-5 { top: 75%; animation-duration: 55s; animation-delay: -20s; --s: 1.5; }
+.cloud-6 { top: 90%; animation-duration: 40s; animation-delay: -2s; --s: 1; }
+
+@keyframes floatCloud {
+  0% { transform: translateX(-200px) scale(var(--s, 1)); }
+  100% { transform: translateX(110vw) scale(var(--s, 1)); }
 }
 
 .container {
@@ -177,8 +221,18 @@ body {
   line-height: 1.1;
   text-transform: uppercase;
   margin: 0 0 var(--spacing-md);
-  text-shadow: 3px 3px 0px var(--color-quaternary), 4px 4px 0px #000;
+  text-shadow: 3px 3px 0px var(--color-primary), 4px 4px 0px #000;
   letter-spacing: -1px;
+}
+
+.animate-go {
+  display: inline-block;
+  animation: bounceGo 1s infinite alternate ease-in-out;
+}
+
+@keyframes bounceGo {
+  0% { transform: scale(1) translateY(0); color: var(--color-black); }
+  100% { transform: scale(1.15) translateY(-5px); color: var(--color-tertiary); }
 }
 
 .loader {
@@ -186,7 +240,9 @@ body {
   font-weight: 800;
   font-size: 1.2rem;
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 18px;
   background: var(--color-secondary);
@@ -208,14 +264,34 @@ body {
   padding-left: 6px;
   color: var(--color-black);
   animation: spinWords 6s infinite;
+  white-space: nowrap;
 }
 
 @keyframes spinWords {
-  0%, 15% { transform: translateY(0%); }
-  25%, 40% { transform: translateY(-100%); }
-  50%, 65% { transform: translateY(-200%); }
-  75%, 90% { transform: translateY(-300%); }
-  100% { transform: translateY(0%); }
+
+  0%,
+  15% {
+    transform: translateY(0%);
+  }
+
+  25%,
+  40% {
+    transform: translateY(-100%);
+  }
+
+  50%,
+  65% {
+    transform: translateY(-200%);
+  }
+
+  75%,
+  90% {
+    transform: translateY(-300%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 .header-subtitle {
@@ -263,19 +339,23 @@ body {
 
 .social-links {
   display: flex;
-  gap: 18px;
+  gap: 24px;
   margin-top: var(--spacing-lg);
 }
 
 .social-links img {
-  width: 54px;
-  height: 54px;
+  width: 75px;
+  height: 75px;
   background: var(--color-white);
   border: var(--border-thick);
-  padding: 10px;
-  box-shadow: 4px 4px 0px var(--color-black);
+  padding: 15px;
+  box-shadow: 6px 6px 0px var(--color-black);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   filter: contrast(200%);
+}
+
+.social-links img[alt="WhatsApp"] {
+  padding: 4px;
 }
 
 .social-links a:hover img {
@@ -299,7 +379,7 @@ body {
   max-width: 400px;
   height: auto;
   border: var(--border-thick);
-  background: var(--color-white);
+  background: #7A6BFF; /* Roxo meio azulado */
   padding: 20px;
   box-shadow: var(--neo-shadow);
   transform: rotate(2deg);
@@ -328,9 +408,24 @@ body {
 /* Events Grid */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-md);
+  grid-template-columns: repeat(3, 1fr);
+  /* Desktop > 1024px */
+}
+
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* Tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+    /* Mobile */
+  }
 }
 
 .event-card {
@@ -467,6 +562,34 @@ body {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+.organizer-card-captain {
+  background-color: #FFD700 !important;
+  position: relative;
+  border-width: 5px;
+  transform: rotate(-1deg);
+  z-index: 2;
+}
+
+.organizer-card-captain:hover {
+  transform: rotate(-1deg) translate(-2px, -2px) !important;
+}
+
+.captain-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--color-black);
+  color: #FFD700;
+  padding: 5px 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border: 3px solid var(--color-white);
+  box-shadow: 4px 4px 0px var(--color-black);
+  transform: rotate(5deg);
+  z-index: 10;
+  letter-spacing: 1px;
+}
+
 .organizer-card:nth-child(even) {
   background-color: var(--color-secondary);
 }
@@ -479,7 +602,8 @@ body {
 .profile-image {
   width: 120px;
   height: 120px;
-  border-radius: 0; /* Square profiles for Brutalism */
+  border-radius: 0;
+  /* Square profiles for Brutalism */
   border: var(--border-thick);
   overflow: hidden;
   box-shadow: 4px 4px 0px var(--color-black);
@@ -575,6 +699,7 @@ body {
 .faq-item:nth-child(odd) {
   background-color: var(--color-primary);
 }
+
 .faq-item:nth-child(even) {
   background-color: var(--color-tertiary);
 }
@@ -927,7 +1052,7 @@ body {
   .hero-aside {
     order: -1;
   }
-  
+
   .social-links {
     justify-content: center;
   }
@@ -981,28 +1106,22 @@ body {
 }
 
 @media (max-width: 768px) {
-  .events-grid, .cards-grid {
+  .cards-grid {
     display: flex !important;
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     justify-content: flex-start;
     -webkit-overflow-scrolling: touch;
-    /* Hide scrollbar for cleaner look */
     scrollbar-width: none;
     padding-bottom: 20px;
   }
-  
-  .events-grid::-webkit-scrollbar, .cards-grid::-webkit-scrollbar {
+
+  .cards-grid::-webkit-scrollbar {
     display: none;
   }
-  
+
   .event-card {
-    min-width: 85vw;
-    flex-shrink: 0;
-    scroll-snap-align: center;
-    margin: 0;
-    /* Alterar para coluna no mobile para não espremer o conteúdo */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1045,4 +1164,93 @@ body {
     scroll-snap-align: center;
     margin: 0;
   }
+}
+
+/* Sponsors Marquee Strip */
+.sponsors-strip {
+  background-color: #f0f0f0;
+  padding: var(--spacing-md) 0;
+  border-top: var(--border-thick);
+  border-bottom: var(--border-thick);
+  overflow: hidden;
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scrollMarquee 20s linear infinite;
+  gap: 80px;
+  padding: 10px 0;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content img {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+
+
+.marquee-content img:hover {
+  transform: scale(1.05);
+}
+
+/* Nav Dropdown */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  min-width: 200px;
+  box-shadow: var(--neo-shadow);
+  border: var(--border-thick);
+  z-index: 100;
+  flex-direction: column;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+  display: flex;
+}
+
+.nav-dropdown-content a {
+  color: var(--color-black) !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-black);
+  text-align: left;
+}
+
+.nav-dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-black) !important;
 }
