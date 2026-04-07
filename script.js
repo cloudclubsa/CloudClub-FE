@@ -19,7 +19,11 @@ function initMobileMenu() {
 
     const menuLinks = menuNavbar.querySelectorAll('a');
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            if (link.parentElement.classList.contains('nav-dropdown')) {
+                e.preventDefault();
+                return;
+            }
             menuToggle.setAttribute('aria-expanded', 'false');
             menuNavbar.classList.remove('active');
         });
