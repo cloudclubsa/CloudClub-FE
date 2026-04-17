@@ -57,10 +57,20 @@ body {
   font-size: var(--font-size-base);
   color: var(--color-black);
   background-color: var(--color-bg);
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5 L15 25 M5 15 L25 15' stroke='rgba(0,0,0,0.1)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M35 45 L55 45' stroke='rgba(0,0,0,0.1)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 80px 80px;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 20 20' to='360 20 20' dur='3s' repeatCount='indefinite'/%3E%3Cpath d='M20 10 L20 30 M10 20 L30 20' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3C/g%3E%3Cpath d='M50 40 L70 40' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='360 80 20' to='0 80 20' dur='5s' repeatCount='indefinite'/%3E%3Cpath d='M80 10 L80 30 M70 20 L90 20' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3C/g%3E%3Cpath d='M100 50 L115 50' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M10 80 L30 80' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M50 100 L50 120 M40 110 L60 110' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 80 80' to='360 80 80' dur='1.5s' repeatCount='indefinite'/%3E%3Cpath d='M80 70 L80 90 M70 80 L90 80' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3C/g%3E%3Cpath d='M100 100 L120 100' stroke='rgba(0,0,0,0.15)' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
   position: relative;
   overflow-x: hidden;
+  animation: movePattern 8s linear infinite;
+}
+
+@keyframes movePattern {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -120px -120px;
+  }
 }
 
 /* Background Clouds */
@@ -93,6 +103,10 @@ body {
 .cloud-4 { top: 60%; animation-duration: 70s; animation-delay: -45s; --s: 0.9; }
 .cloud-5 { top: 75%; animation-duration: 55s; animation-delay: -20s; --s: 1.5; }
 .cloud-6 { top: 90%; animation-duration: 40s; animation-delay: -2s; --s: 1; }
+.cloud-7 { top: 15%; animation-duration: 52s; animation-delay: -15s; --s: 1.2; }
+.cloud-8 { top: 35%; animation-duration: 48s; animation-delay: -38s; --s: 0.7; }
+.cloud-9 { top: 65%; animation-duration: 65s; animation-delay: -12s; --s: 1.4; }
+.cloud-10 { top: 85%; animation-duration: 42s; animation-delay: -25s; --s: 0.85; }
 
 @keyframes floatCloud {
   0% { transform: translateX(-200px) scale(var(--s, 1)); }
