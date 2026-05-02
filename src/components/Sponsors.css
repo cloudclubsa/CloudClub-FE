@@ -1,0 +1,67 @@
+/* ============================================
+   Sponsors Marquee
+   ============================================ */
+
+.sponsors-strip {
+  padding: var(--spacing-lg) 0;
+  background: var(--color-white);
+  border-top: var(--border);
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-white), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--color-white), transparent);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: var(--transition-base);
+}
+
+.marquee-content img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.marquee-content img.sponsors-club {
+  height: 50px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

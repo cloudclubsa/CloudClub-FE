@@ -1,0 +1,122 @@
+/* ============================================
+   Footer
+   ============================================ */
+
+.site-footer {
+  background: var(--color-black);
+  color: rgba(255, 255, 255, 0.6);
+  padding-top: var(--spacing-2xl);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+/* Brand */
+.footer-brand-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: var(--spacing-sm);
+  border-radius: 8px;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-links h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+  padding-left: 4px;
+}
+
+/* AWS Logo */
+.footer-aws {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.footer-aws-logo {
+  height: 36px;
+  opacity: 0.4;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  margin-top: var(--spacing-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--spacing-md) 0;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-aws {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+}

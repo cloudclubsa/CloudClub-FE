@@ -1,0 +1,21 @@
+/* ============================================
+   App-level Styles
+   ============================================ */
+
+/* Sections spacing */
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth reveal animation on scroll (optional enhancement) */
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    animation: sectionReveal 0.6s ease-out both;
+  }
+}
+
+@keyframes sectionReveal {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}

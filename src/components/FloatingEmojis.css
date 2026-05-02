@@ -1,0 +1,86 @@
+.floating-emojis-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50; /* Float above sections but below modals/nav */
+  overflow: hidden;
+  opacity: 0.4; /* Subtle overlay effect */
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 3rem;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+  animation-name: floatCloud;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Different sizes, speeds, and positions for each cloud */
+.floating-emoji-1 {
+  font-size: 4rem;
+  left: -10%;
+  top: 15%;
+  animation-duration: 45s;
+  animation-delay: 0s;
+}
+
+.floating-emoji-2 {
+  font-size: 2.5rem;
+  left: -10%;
+  top: 45%;
+  animation-duration: 55s;
+  animation-delay: 15s;
+}
+
+.floating-emoji-3 {
+  font-size: 5rem;
+  left: -10%;
+  top: 75%;
+  animation-duration: 40s;
+  animation-delay: 5s;
+}
+
+.floating-emoji-4 {
+  font-size: 3.5rem;
+  left: -10%;
+  top: 25%;
+  animation-duration: 60s;
+  animation-delay: 25s;
+}
+
+.floating-emoji-5 {
+  font-size: 4.5rem;
+  left: -10%;
+  top: 60%;
+  animation-duration: 50s;
+  animation-delay: 10s;
+}
+
+.floating-emoji-6 {
+  font-size: 3rem;
+  left: -10%;
+  top: 85%;
+  animation-duration: 65s;
+  animation-delay: 35s;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110vw) translateY(-50px) rotate(5deg) scale(1.1);
+    opacity: 0;
+  }
+}

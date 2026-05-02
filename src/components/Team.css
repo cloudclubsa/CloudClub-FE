@@ -1,0 +1,208 @@
+/* ============================================
+   Team / Organizers Section
+   ============================================ */
+
+.team-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--color-light-gray);
+  position: relative;
+}
+
+.team-carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 0 20px 0; /* Add padding for shadows */
+}
+
+.team-carousel {
+  display: flex;
+  gap: var(--spacing-md);
+  width: max-content;
+  animation: scrollTeam 40s linear infinite;
+  padding: 0 var(--spacing-md);
+}
+
+.team-carousel:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTeam {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - (var(--spacing-md) / 2))); }
+}
+
+/* Team Card (Comic Style) */
+.team-card {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--color-white);
+  border: var(--border-thick);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
+  text-align: center;
+  box-shadow: var(--shadow-brutal-lg);
+  transition: var(--transition-spring);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Comic Book Dots Pattern inside card */
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+  z-index: -1;
+}
+
+/* Rotate colors for comic effect */
+.team-card:nth-child(4n+1) { background: var(--color-amber); }
+.team-card:nth-child(4n+2) { background: var(--color-cyan); }
+.team-card:nth-child(4n+3) { background: var(--color-mint); }
+.team-card:nth-child(4n+4) { background: var(--color-purple-light); }
+
+.team-card:nth-child(4n+1) .team-role-club { color: var(--color-black); }
+.team-card:nth-child(4n+2) .team-role-club { color: var(--color-black); }
+.team-card:nth-child(4n+3) .team-role-club { color: var(--color-black); }
+.team-card:nth-child(4n+4) .team-role-club { color: var(--color-white); text-shadow: 1px 1px 0 #000; }
+
+.team-card:hover {
+  transform: translate(-4px, -4px) rotate(1deg);
+  box-shadow: 8px 8px 0px var(--color-black);
+}
+
+/* Captain variant */
+.team-card--captain {
+  border-color: var(--color-black);
+}
+
+.team-card--captain::after {
+  content: '★ CAPITÃO ★';
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background: var(--color-magenta);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 30px;
+  transform: rotate(45deg);
+  border: 2px solid var(--color-black);
+  box-shadow: 2px 2px 0 var(--color-black);
+  z-index: 2;
+}
+
+/* Removed old badge, using ribbon above */
+
+/* Avatar */
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-light-gray);
+  flex-shrink: 0;
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-base);
+}
+
+.team-card:hover .team-avatar img {
+  transform: scale(1.08);
+}
+
+/* Info */
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.team-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.team-role-club {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.team-role-pro {
+  font-size: 0.78rem;
+  color: var(--color-black);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* LinkedIn */
+.team-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--spacing-xs);
+  padding: 0.4rem 1rem;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-white);
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: var(--transition-spring);
+  box-shadow: 2px 2px 0 var(--color-black);
+}
+
+.team-linkedin:hover {
+  background: #0A66C2;
+  color: var(--color-white);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-black);
+}
+
+.linkedin-icon {
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-fast);
+}
+
+.team-linkedin:hover .linkedin-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .team-card {
+    width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-card {
+    width: 220px;
+    padding: var(--spacing-sm);
+  }
+
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .team-role-pro {
+    font-size: 0.72rem;
+  }
+}
