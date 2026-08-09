@@ -456,8 +456,6 @@ function App() {
           <small>Goiás, Brasil<br />Online + presencial</small>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} AWS CLOUD CLUB GO</span>
-          <span>FEITO COM ☁ E COMUNIDADE</span>
           <span>RICARDO NERES & PEDRO CARDOSO</span>
         </div>
       </footer>
