@@ -157,6 +157,18 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeEvent, setActiveEvent] = useState(null)
   const [openFaq, setOpenFaq] = useState(0)
+  const [showWelcome, setShowWelcome] = useState(true)
+
+  useEffect(() => {
+    if (!showWelcome) return undefined
+    const onKeyDown = (event) => event.key === 'Escape' && setShowWelcome(false)
+    document.body.classList.add('modal-open')
+    window.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.classList.remove('modal-open')
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [showWelcome])
 
   useEffect(() => {
     if (!activeEvent) return undefined
@@ -173,6 +185,15 @@ function App() {
 
   return (
     <div className="site-shell">
+      {showWelcome && (
+        <div className="welcome-popup" role="dialog" aria-modal="true" aria-label="Boas-vindas">
+          <button className="welcome-popup-card" type="button" onClick={() => setShowWelcome(false)} autoFocus>
+            <img src={welcomeArtwork} alt="Bem-vindo" />
+            <span>ENTRAR NO SITE <b>→</b></span>
+          </button>
+        </div>
+      )}
+
       <Marquee
         className="announcement-bar"
         items={['AWS CLOUD CLUB GO', 'PRÓXIMOS EVENTOS NO MEETUP', 'APRENDA • CONECTE • CONSTRUA', 'COMUNIDADE EM GOIÁS']}
@@ -202,8 +223,6 @@ function App() {
 
       <main>
         <section id="inicio" className="hero dotted-bg">
-          <img className="hero-welcome-artwork" src={welcomeArtwork} alt="Bem-vindo" />
-
           <div className="hero-copy">
             <div className="hero-badges">
               <span className="label label--yellow">📍 GOIÁS + ONLINE</span>

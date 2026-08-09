@@ -156,26 +156,67 @@
   background: var(--ink);
 }
 
-.hero-welcome-artwork {
-  position: absolute;
-  top: clamp(1.25rem, 2.5vw, 2.25rem);
-  left: 50%;
-  z-index: 2;
-  display: block;
-  width: clamp(260px, 31vw, 430px);
-  height: auto;
+.welcome-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(10, 10, 10, 0.76);
+  backdrop-filter: blur(8px);
+  animation: welcomeBackdropIn 220ms ease-out both;
+}
+
+.welcome-popup-card {
+  width: min(92vw, 520px);
+  overflow: hidden;
   border: var(--line);
   border-radius: 12px;
-  box-shadow: 7px 7px 0 var(--ink);
-  transform: translateX(-50%) rotate(-1deg);
+  background: var(--blue);
+  box-shadow: 10px 10px 0 var(--ink);
+  cursor: pointer;
+  transform: rotate(-1deg);
+  animation: welcomeCardIn 320ms cubic-bezier(0.2, 0.85, 0.25, 1.2) both;
+}
+
+.welcome-popup-card img {
+  width: 100%;
+  height: auto;
+}
+
+.welcome-popup-card span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0.9rem 1.25rem;
+  border-top: var(--line);
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.welcome-popup-card:hover {
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: translate(4px, 4px) rotate(-1deg);
+}
+
+@keyframes welcomeBackdropIn {
+  from { opacity: 0; }
+}
+
+@keyframes welcomeCardIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.94) rotate(-1deg); }
 }
 
 .hero {
-  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: calc(100vh - 118px);
-  padding-top: clamp(12.5rem, 20vw, 18rem);
   border-bottom: var(--line);
   overflow: hidden;
 }
