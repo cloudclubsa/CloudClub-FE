@@ -340,6 +340,21 @@
   object-fit: contain;
 }
 
+@media (min-width: 1121px) {
+  .hero-copy {
+    padding-right: clamp(0.75rem, 1.5vw, 1.5rem);
+  }
+
+  .hero-title--artwork {
+    margin-left: auto;
+  }
+
+  .hero-visual {
+    justify-items: start;
+    padding-left: 0;
+  }
+}
+
 .partners {
   border-bottom: var(--line);
   background: var(--white);
