@@ -201,11 +201,9 @@ function App() {
       </header>
 
       <main>
-        <div className="welcome-artwork-wrap">
-          <img className="welcome-artwork" src={welcomeArtwork} alt="Bem-vindo" />
-        </div>
-
         <section id="inicio" className="hero dotted-bg">
+          <img className="hero-welcome-artwork" src={welcomeArtwork} alt="Bem-vindo" />
+
           <div className="hero-copy">
             <div className="hero-badges">
               <span className="label label--yellow">📍 GOIÁS + ONLINE</span>
