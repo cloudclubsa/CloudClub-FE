@@ -158,11 +158,13 @@ function App() {
   const [activeEvent, setActiveEvent] = useState(null)
   const [openFaq, setOpenFaq] = useState(0)
   const [showWelcome, setShowWelcome] = useState(true)
+  const [welcomeClosing, setWelcomeClosing] = useState(false)
 
   useEffect(() => {
     if (!showWelcome) return undefined
-    const onKeyDown = (event) => event.key === 'Escape' && setShowWelcome(false)
-    const autoCloseTimer = window.setTimeout(() => setShowWelcome(false), 1300)
+    const beginClose = () => setWelcomeClosing(true)
+    const onKeyDown = (event) => event.key === 'Escape' && beginClose()
+    const autoCloseTimer = window.setTimeout(beginClose, 1300)
     document.body.classList.add('modal-open')
     window.addEventListener('keydown', onKeyDown)
     return () => {
@@ -171,6 +173,12 @@ function App() {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [showWelcome])
+
+  useEffect(() => {
+    if (!welcomeClosing) return undefined
+    const removePopupTimer = window.setTimeout(() => setShowWelcome(false), 320)
+    return () => window.clearTimeout(removePopupTimer)
+  }, [welcomeClosing])
 
   useEffect(() => {
     if (!activeEvent) return undefined
@@ -188,8 +196,8 @@ function App() {
   return (
     <div className="site-shell">
       {showWelcome && (
-        <div className="welcome-popup" role="dialog" aria-modal="true" aria-label="Boas-vindas">
-          <button className="welcome-popup-card" type="button" onClick={() => setShowWelcome(false)} autoFocus>
+        <div className={welcomeClosing ? 'welcome-popup welcome-popup--closing' : 'welcome-popup'} role="dialog" aria-modal="true" aria-label="Boas-vindas">
+          <button className="welcome-popup-card" type="button" onClick={() => setWelcomeClosing(true)} autoFocus>
             <img src={welcomeArtwork} alt="Bem-vindo" />
             <span>ENTRAR NO SITE <b>→</b></span>
           </button>

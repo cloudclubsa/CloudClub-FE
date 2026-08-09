@@ -205,12 +205,29 @@
   transform: translate(4px, 4px) rotate(-1deg);
 }
 
+.welcome-popup--closing {
+  pointer-events: none;
+  animation: welcomeBackdropOut 320ms ease-in forwards;
+}
+
+.welcome-popup--closing .welcome-popup-card {
+  animation: welcomeCardOut 320ms ease-in forwards;
+}
+
 @keyframes welcomeBackdropIn {
   from { opacity: 0; }
 }
 
 @keyframes welcomeCardIn {
   from { opacity: 0; transform: translateY(28px) scale(0.94) rotate(-1deg); }
+}
+
+@keyframes welcomeBackdropOut {
+  to { opacity: 0; }
+}
+
+@keyframes welcomeCardOut {
+  to { opacity: 0; transform: translateY(-18px) scale(0.94) rotate(-1deg); }
 }
 
 .hero {
