@@ -169,7 +169,6 @@
   flex-direction: column;
   justify-content: center;
   padding: clamp(3rem, 6vw, 6.5rem) clamp(1.25rem, 5vw, 5rem);
-  border-right: var(--line);
 }
 
 .hero-badges {
@@ -1271,7 +1270,7 @@
 
   .hero-copy {
     border-right: 0;
-    border-bottom: var(--line);
+    border-bottom: 0;
   }
 
   .hero-visual {
