@@ -178,11 +178,6 @@ function App() {
       />
 
       <header className="site-header">
-        <a className="brand" href="#inicio" onClick={closeMenu} aria-label="AWS Cloud Club GO — início">
-          <span className="brand-mark" aria-hidden="true">☁</span>
-          <span className="brand-copy"><b>AWS CLOUD CLUB</b><small>GOIÁS_ BRASIL</small></span>
-        </a>
-
         <button
           className="menu-toggle"
           type="button"
