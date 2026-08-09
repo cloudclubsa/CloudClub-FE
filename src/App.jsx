@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import welcomeArtwork from './assets/BemVindo.png'
+import heroTitleArtwork from './assets/aws-student-club-go-transparent.png'
 import cloudClubArtwork from './assets/NewLogoClub.png'
 import awsLogo from './assets/AWS_BLK.png'
 import aluraLogo from './assets/Alura.webp'
@@ -211,10 +212,8 @@ function App() {
               <span className="label label--white">AWS COMMUNITY</span>
             </div>
 
-            <h1 className="hero-title">
-              <span>AWS</span>
-              <span>CLOUD CLUB</span>
-              <span className="hero-title-accent">GO.</span>
+            <h1 className="hero-title hero-title--artwork">
+              <img src={heroTitleArtwork} alt="AWS Student Club GO" />
             </h1>
 
             <div className="hero-actions">

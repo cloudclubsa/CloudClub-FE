@@ -244,6 +244,21 @@
   padding-right: 0.12em;
 }
 
+.hero-title--artwork {
+  position: relative;
+  width: min(100%, 620px);
+  max-width: none;
+  aspect-ratio: 1.45;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-title--artwork img {
+  width: 100%;
+  height: auto;
+  transform: translateY(-20%);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
