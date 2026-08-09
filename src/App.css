@@ -156,6 +156,23 @@
   background: var(--ink);
 }
 
+.welcome-artwork-wrap {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 1rem;
+  border-bottom: var(--line);
+  background: var(--paper);
+}
+
+.welcome-artwork {
+  display: block;
+  width: clamp(260px, 31vw, 430px);
+  height: auto;
+  border: var(--line);
+  border-radius: 12px;
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

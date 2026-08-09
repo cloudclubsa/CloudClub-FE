@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import welcomeArtwork from './assets/BemVindo.png'
 import cloudClubArtwork from './assets/NewLogoClub.png'
 import awsLogo from './assets/AWS_BLK.png'
 import aluraLogo from './assets/Alura.webp'
@@ -199,6 +200,10 @@ function App() {
       </header>
 
       <main>
+        <div className="welcome-artwork-wrap">
+          <img className="welcome-artwork" src={welcomeArtwork} alt="Bem-vindo" />
+        </div>
+
         <section id="inicio" className="hero dotted-bg">
           <div className="hero-copy">
             <div className="hero-badges">
