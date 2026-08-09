@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import cloudClubArtwork from './assets/CloudClubGO_FUNDO.png'
+import cloudClubArtwork from './assets/NewLogoClub.png'
 import awsLogo from './assets/AWS_BLK.png'
 import aluraLogo from './assets/Alura.webp'
 import cloudClubLogo from './assets/CloudClub_Purple.png'
@@ -224,29 +224,8 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Painel da comunidade AWS Cloud Club GO">
-            <div className="paper-stack paper-stack--purple" />
-            <div className="paper-stack paper-stack--mint" />
-            <article className="status-card">
-              <div className="status-card-top">
-                <span><i /> STATUS DA COMUNIDADE</span>
-                <b>GO_ONLINE</b>
-              </div>
-              <div className="status-artwork">
-                <img src={cloudClubArtwork} alt="Identidade visual AWS Cloud Club GO" />
-              </div>
-              <div className="status-id">
-                <span>aws_cloud_club.go</span>
-                <b aria-label="Verificado">✓</b>
-              </div>
-              <div className="status-stats">
-                <div><small>EVENTOS</small><strong>02+</strong></div>
-                <div><small>TIME GO</small><strong>11</strong></div>
-              </div>
-              <div className="status-progress"><span /></div>
-              <p>100% MOVIDO POR COMUNIDADE</p>
-            </article>
-            <div className="status-sticker">BUILD<br />TOGETHER</div>
+          <div className="hero-visual">
+            <img className="hero-community-logo" src={cloudClubArtwork} alt="AWS Student Club GO" />
           </div>
         </section>
 
