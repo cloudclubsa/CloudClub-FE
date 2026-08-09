@@ -162,9 +162,11 @@ function App() {
   useEffect(() => {
     if (!showWelcome) return undefined
     const onKeyDown = (event) => event.key === 'Escape' && setShowWelcome(false)
+    const autoCloseTimer = window.setTimeout(() => setShowWelcome(false), 1300)
     document.body.classList.add('modal-open')
     window.addEventListener('keydown', onKeyDown)
     return () => {
+      window.clearTimeout(autoCloseTimer)
       document.body.classList.remove('modal-open')
       window.removeEventListener('keydown', onKeyDown)
     }

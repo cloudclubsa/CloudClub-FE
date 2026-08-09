@@ -163,8 +163,8 @@
   display: grid;
   place-items: center;
   padding: 1rem;
-  background: rgba(10, 10, 10, 0.76);
-  backdrop-filter: blur(8px);
+  background: rgba(244, 244, 240, 0.38);
+  backdrop-filter: blur(5px);
   animation: welcomeBackdropIn 220ms ease-out both;
 }
 
