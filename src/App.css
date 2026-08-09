@@ -228,29 +228,6 @@
   padding-right: 0.12em;
 }
 
-.brutal-box {
-  width: min(100%, 640px);
-  margin-top: 2.4rem;
-  padding: 1.15rem 1.25rem;
-  background: var(--white);
-  border: var(--line);
-  box-shadow: var(--shadow);
-  transform: rotate(0.5deg);
-}
-
-.hero-intro p {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.25;
-}
-
-.hero-intro strong {
-  display: block;
-  margin-top: 0.45rem;
-  font-family: var(--display);
-  font-size: clamp(0.88rem, 1.25vw, 1.05rem);
-  line-height: 1.35;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;

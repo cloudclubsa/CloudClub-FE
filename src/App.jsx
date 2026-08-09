@@ -90,12 +90,11 @@ const journey = [
 ]
 
 const team = [
-  { name: 'Ricardo Neres', role: 'Capitão / Líder', work: 'Desenvolvedor @ AUVP', img: ricardoImg, linkedin: 'https://www.linkedin.com/in/9neres/', captain: true },
-  { name: 'Maria Clara', role: 'Capitã / Líder', work: 'Supervisora de TI @ VIASOFT', img: mariaImg, linkedin: 'https://www.linkedin.com/in/mariapaulacr', captain: true },
-  { name: 'Pedro Cardoso', role: 'Desenvolvimento', work: 'Software Engineer', img: 'https://github.com/Printf-PedroCardoso.png', linkedin: 'https://www.linkedin.com/in/printf-pedro-c/' },
-  { name: 'Jéssica Canuto', role: 'Marketing', work: 'Infraestrutura @ Sanax', img: 'https://avatars.githubusercontent.com/u/108158611?v=4', linkedin: 'https://www.linkedin.com/in/j%C3%A9ssica-canuto-637a7a263/' },
-  { name: 'Thaysa Larissa', role: 'Captação de recursos', work: 'Supervisora de TI', img: thaysaImg },
-  { name: 'Lucas Téofilo', role: 'Vice-líder', work: 'Cybersegurança', img: lucasImg, linkedin: 'https://www.linkedin.com/in/lucas-teófilo-monteiro-finotti-941bb0197' },
+  { name: 'Ricardo Neres', role: 'Capitão / Líder', work: 'CEO e DevOps @ Ya3', img: ricardoImg, linkedin: 'https://www.linkedin.com/in/9neres/', captain: true },
+  { name: 'Maria Paula', role: 'Capitã / Líder', work: 'Cybersegurança @ AIC Soluções', img: mariaImg, linkedin: 'https://www.linkedin.com/in/mariapaulacr', captain: true },
+  { name: 'Pedro Cardoso', role: 'Desenvolvimento', work: 'Engenheiro de Software @ Decisão Sistemas', img: 'https://github.com/Printf-PedroCardoso.png', linkedin: 'https://www.linkedin.com/in/printf-pedro-c/' },
+  { name: 'Jéssica Canuto', role: 'Marketing', work: 'Analista de Suporte @ JM SISTEMAS,BPO & AUDITORIAS', img: 'https://avatars.githubusercontent.com/u/108158611?v=4', linkedin: 'https://www.linkedin.com/in/j%C3%A9ssica-canuto-637a7a263/' },
+  { name: 'Lucas Téofilo', role: 'Vice-líder', work: 'Desenvolvedor @ IndiceMor', img: lucasImg, linkedin: 'https://www.linkedin.com/in/lucas-teófilo-monteiro-finotti-941bb0197' },
   { name: 'Allinny', role: 'Planejamento', work: 'Engenheira de Software', img: allinnyImg, linkedin: 'https://www.linkedin.com/in/alinny-gomes-damascena-070871332' },
   { name: 'Marco', role: 'Áudio e vídeo', work: 'Engenheiro de Software', img: marcoImg, linkedin: 'https://www.linkedin.com/in/marco-antonio-oliveira-cavaco-9b3b24325' },
   { name: 'Janine', role: 'Vice-líder', work: 'Engenheira de Software', img: janineImg, linkedin: 'https://www.linkedin.com/in/janine-ferreira-leal-b95339265' },
@@ -212,11 +211,6 @@ function App() {
               <span>CLOUD CLUB</span>
               <span className="hero-title-accent">GO.</span>
             </h1>
-
-            <div className="hero-intro brutal-box">
-              <p>Não fique só assistindo a nuvem passar.</p>
-              <strong>APRENDA AWS, CONSTRUA PROJETOS E CRESÇA COM A COMUNIDADE.</strong>
-            </div>
 
             <div className="hero-actions">
               <ExternalLink className="button button--primary" href={meetupUrl}>VER PRÓXIMOS EVENTOS <span>→</span></ExternalLink>
