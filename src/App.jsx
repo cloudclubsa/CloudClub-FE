@@ -418,8 +418,10 @@ function App() {
                     <strong>{faq.question}</strong>
                     <b aria-hidden="true">{isOpen ? '−' : '+'}</b>
                   </button>
-                  <div id={`faq-answer-${index}`} className="faq-answer" hidden={!isOpen}>
-                    <p>{faq.answer}</p>
+                  <div id={`faq-answer-${index}`} className="faq-answer" aria-hidden={!isOpen}>
+                    <div className="faq-answer-inner">
+                      <p>{faq.answer}</p>
+                    </div>
                   </div>
                 </article>
               )
