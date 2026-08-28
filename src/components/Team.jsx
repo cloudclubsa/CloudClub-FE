@@ -1,5 +1,5 @@
-import ricardoImg from '../assets/Ricardo.png'
-import mariaImg from '../assets/Maria.jpg'
+import ricardoImg from '../assets/ricardo.png'
+import mariaImg from '../assets/Maria.png'
 import thaysaImg from '../assets/Thaysa.jpg'
 import lucasImg from '../assets/Lucas.jpg'
 import allinnyImg from '../assets/Allinny.jpg'
