@@ -1,4 +1,4 @@
-import ricardoImg from '../assets/Ricardo.png'
+import ricardoImg from '../assets/ricardo.jpeg'
 import mariaImg from '../assets/Maria.jpg'
 import thaysaImg from '../assets/Thaysa.jpg'
 import lucasImg from '../assets/Lucas.jpg'

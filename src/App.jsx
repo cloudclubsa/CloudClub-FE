@@ -7,7 +7,7 @@ import aluraLogo from './assets/Alura.webp'
 import cloudClubLogo from './assets/CloudClub_Purple.png'
 import fiapLogo from './assets/Fiap-logo-novo-removebg-preview.png'
 import rocketseatLogo from './assets/RocketSeat.png'
-import ricardoImg from './assets/Ricardo.png'
+import ricardoImg from './assets/Ricardo.jpeg'
 import mariaImg from './assets/Maria.jpg'
 import thaysaImg from './assets/Thaysa.jpg'
 import lucasImg from './assets/Lucas.jpg'
@@ -28,6 +28,19 @@ const socialLinks = [
 ]
 
 const events = [
+  {
+    id: 3,
+    edition: 'EDIÇÃO_03',
+    day: '12',
+    month: 'SET',
+    title: 'Talks, Coffee Break e Sorteios',
+    location: 'Hub Goiás — Goiânia, GO',
+    time: '14h às 18h · Presencial',
+    price: 'Evento gratuito (Vagas Limitadas)',
+    link: 'https://www.sympla.com.br/evento/aws-student-club-go-3-talks-coffee-break-e-sorteios/3558014',
+    description: 'O Student Club GO está de volta com mais um encontro presencial em Goiânia. Uma tarde de talks com profissionais que atuam em grandes polos de tecnologia, seguida de coffee break e sorteios. Programação: 14h abertura, 14h15 talk com Arthur (PagBank), 15h50 talk com CEIA, 17h20 encerramento e sorteios (presencial), 17h30 coffee break e networking, 18h fim. Para estudantes e profissionais em início de carreira — não é necessário conhecimento prévio.',
+    accent: 'yellow',
+  },
   {
     id: 2,
     edition: 'EDIÇÃO_02',
@@ -159,6 +172,8 @@ function App() {
   const [openFaq, setOpenFaq] = useState(0)
   const [showWelcome, setShowWelcome] = useState(true)
   const [welcomeClosing, setWelcomeClosing] = useState(false)
+  const [showEventNotice, setShowEventNotice] = useState(false)
+  const [eventNoticeClosing, setEventNoticeClosing] = useState(false)
 
   useEffect(() => {
     if (!showWelcome) return undefined
@@ -181,6 +196,19 @@ function App() {
   }, [welcomeClosing])
 
   useEffect(() => {
+    const showTimer = window.setTimeout(() => setShowEventNotice(true), 1800)
+    return () => window.clearTimeout(showTimer)
+  }, [])
+
+  const closeEventNotice = () => {
+    setEventNoticeClosing(true)
+    window.setTimeout(() => {
+      setShowEventNotice(false)
+      setEventNoticeClosing(false)
+    }, 280)
+  }
+
+  useEffect(() => {
     if (!activeEvent) return undefined
     const onKeyDown = (event) => event.key === 'Escape' && setActiveEvent(null)
     document.body.classList.add('modal-open')
@@ -201,6 +229,23 @@ function App() {
             <img src={welcomeArtwork} alt="Bem-vindo" />
             <span>ENTRAR NO SITE <b>→</b></span>
           </button>
+        </div>
+      )}
+
+      {showEventNotice && (
+        <div className={eventNoticeClosing ? 'event-notice event-notice--closing' : 'event-notice'} role="dialog" aria-label="Novo evento">
+          <button className="event-notice-close" type="button" aria-label="Fechar aviso" onClick={closeEventNotice}>×</button>
+          <a
+            className="event-notice-body"
+            href="https://www.sympla.com.br/evento/aws-student-club-go-3-talks-coffee-break-e-sorteios/3558014"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="event-notice-kicker">💜 NOVO EVENTO</span>
+            <strong>Talks, Coffee Break e Sorteios</strong>
+            <span className="event-notice-meta">📍 Hub Goiás · 12 de setembro, 14h–18h</span>
+            <span className="event-notice-cta">GARANTIR VAGA NO SYMPLA →</span>
+          </a>
         </div>
       )}
 
@@ -244,7 +289,7 @@ function App() {
             </h1>
 
             <div className="hero-actions">
-              <ExternalLink className="button button--primary" href={meetupUrl}>VER PRÓXIMOS EVENTOS <span>→</span></ExternalLink>
+              <a className="button button--primary" href="#eventos">VER PRÓXIMOS EVENTOS <span>→</span></a>
               <a className="button button--secondary" href="#jornada">CONHECER O CLUB <span>↓</span></a>
             </div>
 

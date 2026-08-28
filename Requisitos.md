@@ -200,7 +200,7 @@ Antigo HTML do Cloud Club:
                         <article class="organizer-card organizer-card-captain">
                             <div class="captain-badge">🏴‍☠️ CAPTAIN</div>
                             <div class="profile-image">
-                                <img src="Elements - AWS Club/ricardo.png" alt="Ricardo" />
+                                <img src="Elements - AWS Club/ricardo.jpeg" alt="Ricardo" />
                             </div>
                             <div class="card-info">
                                 <h3>Ricardo Neres</h3>
