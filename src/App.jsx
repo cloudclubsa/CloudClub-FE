@@ -38,7 +38,7 @@ const events = [
     time: '14h às 18h · Presencial',
     price: 'Evento gratuito (Vagas Limitadas)',
     link: 'https://www.sympla.com.br/evento/aws-student-club-go-3-talks-coffee-break-e-sorteios/3558014',
-    description: 'O Student Club GO está de volta com mais um encontro presencial em Goiânia. Uma tarde de talks com profissionais que atuam em grandes polos de tecnologia, seguida de coffee break e sorteios. Programação: 14h abertura, 14h15 talk com Arthur (PagBank), 15h50 talk com CEIA, 17h20 encerramento e sorteios (presencial), 17h30 coffee break e networking, 18h fim. Para estudantes e profissionais em início de carreira — não é necessário conhecimento prévio.',
+    description: 'O Student Club GO está de volta com mais um encontro presencial em Goiânia. Uma tarde de talks com profissionais que atuam em grandes polos de tecnologia, seguida de coffee break e sorteios. Programação: 14h abertura, 14h15 talk com Arthur representando o PagBank e o CEIA, 15h50 nossa segunda talk, 17h20 encerramento e sorteios (presencial), 17h30 coffee break e networking, 18h fim. Para estudantes e profissionais em início de carreira — não é necessário conhecimento prévio.',
     accent: 'yellow',
   },
   {
