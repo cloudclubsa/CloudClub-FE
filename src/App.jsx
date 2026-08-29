@@ -33,7 +33,7 @@ const events = [
     edition: 'EDIÇÃO_03',
     day: '12',
     month: 'SET',
-    title: 'Talks, Coffee Break e Sorteios',
+    title: 'AWS Student Club GO #3 | Talks, Coffee Break e Sorteios',
     location: 'Hub Goiás — Goiânia, GO',
     time: '14h às 18h · Presencial',
     price: 'Evento gratuito (Vagas Limitadas)',
@@ -242,7 +242,7 @@ function App() {
             rel="noopener noreferrer"
           >
             <span className="event-notice-kicker">💜 NOVO EVENTO</span>
-            <strong>Talks, Coffee Break e Sorteios</strong>
+            <strong>AWS Student Club GO #3 | Talks, Coffee Break e Sorteios</strong>
             <span className="event-notice-meta">📍 Hub Goiás · 12 de setembro, 14h–18h</span>
             <span className="event-notice-cta">GARANTIR VAGA NO SYMPLA →</span>
           </a>
