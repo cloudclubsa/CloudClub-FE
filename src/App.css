@@ -129,6 +129,18 @@
   background: var(--yellow);
 }
 
+.site-nav .nav-sorteio {
+  border-left: var(--line);
+  background: var(--mint);
+  color: var(--ink);
+  padding-inline: 1.2rem;
+  gap: 0.4rem;
+}
+
+.site-nav .nav-sorteio:hover {
+  background: var(--yellow);
+}
+
 .site-nav .nav-cta {
   border-left: var(--line);
   background: var(--purple);
@@ -1063,6 +1075,34 @@
   background: var(--mint);
 }
 
+.certificate-soon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 74px;
+  padding: 1rem 1.25rem;
+  border: 4px dashed rgba(255, 255, 255, 0.55);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--display);
+}
+
+.certificate-soon > span {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.6rem;
+  border: 2px solid currentColor;
+}
+
+.certificate-note {
+  margin-top: 1.4rem;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .community-panel {
   position: relative;
   overflow: hidden;
@@ -1364,7 +1404,7 @@
 }
 
 @media (max-width: 1120px) {
-  .site-nav > a:not(.nav-cta) {
+  .site-nav > a:not(.nav-cta):not(.nav-sorteio) {
     display: none;
   }
 
@@ -1494,7 +1534,7 @@
 
   .site-nav--open {
     display: flex;
-    max-height: 520px;
+    max-height: 600px;
     opacity: 1;
     pointer-events: auto;
   }
@@ -1517,6 +1557,15 @@
     transform: scale(0.98);
   }
 
+  .site-nav .nav-sorteio {
+    border-top: var(--line);
+    border-left: 0;
+    border-bottom: 0;
+    min-height: 56px;
+    font-size: 0.82rem;
+    justify-content: flex-start;
+  }
+
   .site-nav .nav-cta {
     border-top: var(--line);
     border-left: 0;
@@ -1532,6 +1581,7 @@
   .site-nav--open > a:nth-child(4) { animation: navSlideIn 320ms 160ms both; }
   .site-nav--open > a:nth-child(5) { animation: navSlideIn 320ms 200ms both; }
   .site-nav--open > a:nth-child(6) { animation: navSlideIn 320ms 240ms both; }
+  .site-nav--open > a:nth-child(7) { animation: navSlideIn 320ms 280ms both; }
 
   @keyframes navSlideIn {
     from {
@@ -1907,6 +1957,17 @@
 
   .certificate-links a:nth-child(2) {
     box-shadow: 5px 5px 0 var(--yellow);
+  }
+
+  .certificate-soon {
+    min-height: 62px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .certificate-note {
+    font-size: 0.72rem;
+    margin-top: 1.2rem;
   }
 
   .community-panel .button {
