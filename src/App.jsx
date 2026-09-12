@@ -19,6 +19,7 @@ import juliaImg from './assets/Julia.jpeg'
 import './App.css'
 
 const meetupUrl = 'https://www.meetup.com/aws-cloud-club-at-faculdade-sul-americana/'
+const sorteioUrl = 'https://sorteio-student-club.vercel.app/'
 
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/110336050' },
@@ -272,6 +273,7 @@ function App() {
           <a href="#time" onClick={closeMenu}>Time</a>
           <a href="#certificados" onClick={closeMenu}>Certificados</a>
           <a href="#faq" onClick={closeMenu}>FAQ</a>
+          <ExternalLink className="nav-sorteio" href={sorteioUrl} onClick={closeMenu}>🎁 SORTEIOS ↗</ExternalLink>
           <ExternalLink className="nav-cta" href={meetupUrl}>ENTRAR NO CLUB ↗</ExternalLink>
         </nav>
       </header>
@@ -442,7 +444,9 @@ function App() {
             <div className="certificate-links">
               <ExternalLink href="https://drive.google.com/drive/folders/1VoI089mon6JDo6cI0BKNT30Vh2RVYAgw?usp=drive_link">EDIÇÃO_01 <span>↗</span></ExternalLink>
               <ExternalLink href="https://drive.google.com/drive/folders/14SOI66NCVs5CLUh0bKmQuQwRz75ywhjs?usp=drive_link">EDIÇÃO_02 <span>↗</span></ExternalLink>
+              <span className="certificate-soon">EDIÇÃO_03 <span>EM BREVE</span></span>
             </div>
+            <p className="certificate-note">Os certificados do evento #3 da comunidade saem em breve. Fique de olho nas nossas redes!</p>
           </div>
           <div className="community-panel dotted-bg">
             <span className="community-emoji" aria-hidden="true">☁</span>
